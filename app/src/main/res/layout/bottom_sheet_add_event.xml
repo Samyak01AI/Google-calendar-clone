@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="24dp"
+    android:background="@drawable/bg_bottom_sheet_rounded">
+
+    <View
+        android:id="@+id/dragHandle"
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_marginTop="12dp"
+        android:background="@color/google_grid_line"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <EditText
+        android:id="@+id/etEventTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Add title"
+        android:textSize="22sp"
+        android:fontFamily="sans-serif-medium"
+        android:background="@null"
+        android:inputType="textCapSentences"
+        android:maxLines="1"
+        android:imeOptions="actionDone"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@id/dragHandle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chipGroupType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        app:singleSelection="true"
+        app:layout_constraintTop_toBottomOf="@id/etEventTitle">
+
+        <com.google.android.material.chip.Chip
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Event"
+            android:checked="true"/>
+
+        <com.google.android.material.chip.Chip
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Task" />
+    </com.google.android.material.chip.ChipGroup>
+
+    <View
+        android:id="@+id/divider1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/google_grid_line"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/chipGroupType"/>
+
+    <ImageView
+        android:id="@+id/ivClock"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/ic_clock_outline"
+        app:tint="@color/google_text_secondary"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divider1"/>
+
+    <TextView
+        android:id="@+id/tvDateStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mon, Jan 18"
+        android:textSize="16sp"
+        android:textColor="@color/google_text_primary"
+        android:background="?attr/selectableItemBackground"
+        android:padding="8dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintTop_toTopOf="@id/ivClock"
+        app:layout_constraintBottom_toBottomOf="@id/ivClock"
+        app:layout_constraintStart_toEndOf="@id/ivClock"/>
+
+    <TextView
+        android:id="@+id/tvTimeStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="10:00 AM"
+        android:textSize="16sp"
+        android:textColor="@color/google_text_primary"
+        android:background="?attr/selectableItemBackground"
+        android:padding="8dp"
+        android:layout_marginStart="4dp"
+        app:layout_constraintTop_toTopOf="@id/ivClock"
+        app:layout_constraintBottom_toBottomOf="@id/ivClock"
+        app:layout_constraintStart_toEndOf="@id/tvDateStart"/>
+
+    <ImageView
+        android:id="@+id/ivColor"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/ic_color_lens"
+        app:tint="@color/google_text_secondary"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="@id/ivClock"
+        app:layout_constraintTop_toBottomOf="@id/ivClock"/>
+
+    <TextView
+        android:id="@+id/tvColorLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Default Color (Sage)"
+        android:textSize="16sp"
+        android:textColor="@color/google_text_primary"
+        android:background="?attr/selectableItemBackground"
+        android:padding="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintTop_toTopOf="@id/ivColor"
+        app:layout_constraintBottom_toBottomOf="@id/ivColor"
+        app:layout_constraintStart_toEndOf="@id/ivColor"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSaveEvent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvColorLabel"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
